@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Main Container */
+.grid-container{
+    height: 100vh;
+    display: grid;
+    grid-template: 
+    "budget-info budget-info budget-info" 20vh
+    "left-menu expense-container category-container" 80vh / 1fr 5fr 1fr;
+}
+
+
+.left-menu {
+    background-color: aqua;
+    grid-area: left-menu;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.budget-setting,
+.category-setting,
+.item-setting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.budget-setting input,
+.category-setting input,
+.item-setting input {
+    border: none;
+    padding: 0.5rem;
+}
+
+.budget-setting button,
+.category-setting button,
+.item-setting button {
+    border: none;
+    background: none;
+    background-color: blueviolet;
+    width: 5rem;
+    padding: 4px;
+}
+
+#category-selector {
+    width: 8rem;
+}
+
+.budget-info{
+    background: dodgerblue;
+    grid-area: budget-info;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    line-height: 2;
+    text-transform: uppercase;
+}
+
+.amount::before{
+    content: "$ ";
+}
+
+/* Expense Items Section */
+.expense-container {
+    background-color: red;
+    grid-area: expense-container;
+}
+
+.expense-table{
+    border-spacing: 20px 10px;
+    width: 100%;
+}
+
+.expense-item {
+    background-color: purple;
+}
+
+
+.expense-data {
+    background-color: orange;
+    text-align: center;
+    padding: 5px;
+}
+
+
+.category-header {
+    width: 8rem;
+}
+
+.amount-header {
+    width: 8rem;
+}
+
+.desc-header {
+    width: 30rem;
+}
+
+.date-header {
+    width: 6rem;
+}
+
+.category-container {  
+    background: yellow;
+    grid-area: category-container;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    overflow-y: auto;
+    gap: 1rem;
+}
+
+.category h4 {
+    line-height: 2;
+}
+
+.limit::before {
+    content: "Limit: $ ";
+}
+.spent::before {
+    content: "Spent: $ ";
+}
+
+
+
+

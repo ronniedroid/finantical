@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <section class="grid-container">
+        <!-- Left Menu -->
+        <div class="left-menu">
+           <div class="budget-setting">
+                <h4>Budget</h4>
+                <input type="number" placeholder="Enter your budget here">
+                <button class="budget-add">Add</button>
+            </div>
+            <div class="category-setting">
+                <h4>Categoty Settings</h4>
+                <input type="text" placeholder="Groceries">
+                <input type="number" placeholder="Enter your category limits here">
+                <button class="budget-add">Set</button>
+            </div>
+            <div class="item-setting">
+                <h4>Add Expense</h4>
+                <select name="category" id="category-selector">
+                    <option selected value="default">Select a category</option>
+                    <option value="food">Food</option>
+                    <option value="housing">Housing</option>
+                    <option value="Car maintenance">Car maintenance</option>
+                    <option value="entertainment">Entertainment/option>
+                </select>
+                <input type="number" placeholder="Enter new items here">
+                <button class="budget-add">Add</button>
+            </div>
+        </div>
+
+        <!-- Top Bar -->
+        <div class="budget-info">
+            <div class="Greeting">
+                <h2>Hello User</h2>
+                <p>Current Date</p>
+            </div>
+            <div class="left-over">
+                <h4>Left Over</h4>
+                <p class="amount">0000</p>
+            </div>
+            <div class="current-expense">
+                <h4>Current Expense</h4>
+                <p class="amount">0000</p>
+            </div>
+           <div class="total-expense">
+                <h4>Total Expense</h4>
+                <p class="amount">0000</p>
+            </div>
+           <div class="savings">
+                <h4>Savings</h4>
+                <p class="amount">0000</p>
+            </div>
+          <div class="total-budget">
+                <h4>Total Budget</h4>
+                <p class="amount">0000</p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="expense-container">
+            <table class="expense-table" style="width:100%">
+                <tr>
+                  <th class="category-header">Category</th>
+                  <th class="amount-header">Amount</th> 
+                  <th class="desc-header">Description</th>
+                  <th class="date-header">Date/Time</th>
+                </tr>
+                <tr class="expense-item">
+                  <td class="expense-data expense-category">Jill</td>
+                  <td class="expense-data expense-amount">Smith</td>
+                  <td class="expense-data expense-desc">50</td>
+                  <td class="expense-data expense-date">01/23/2020</td>
+                </tr>
+                <tr class="expense-item">
+                  <td class="expense-data expense-category">Jill</td>
+                  <td class="expense-data expense-amount">Smith</td>
+                  <td class="expense-data expense-desc">50</td>
+                  <td class="expense-data expense-date">01/23/2020</td>
+                </tr>
+                <tr class="expense-item">
+                  <td class="expense-data expense-category">Jill</td>
+                  <td class="expense-data expense-amount">Smith</td>
+                  <td class="expense-data expense-desc">50</td>
+                  <td class="expense-data expense-date">01/23/2020</td>
+                </tr>
+              </table>
+              
+        </div>
+
+        <!-- Right Menu -->
+        <div class="category-container">
+            <div class="category">
+                <h4>Category1</h4>
+                <p class="limit">0000</p>
+                <p class="spent">0000</p>
+            </div>
+            <div class="category">
+                <h4>Category2</h4>
+                <p class="limit">0000</p>
+                <p class="spent">0000</p>
+            </div>
+
+ 
+        </div>
+    </section>
+   
+    <script src="./app.js"></script>
+</body>
+</html>
