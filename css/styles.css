@@ -51,7 +51,8 @@ body {
 .budget-input,
 .category-input-text,
 .category-input-amount,
-.item-input {
+.item-input-amount,
+.item-input-text {
   border: none;
   padding: 0.5rem;
   width: 10rem;
@@ -120,12 +121,12 @@ input[type="number"] {
 .expense-table {
   border-spacing: 20px 10px;
   width: 100%;
+  padding: 0.6rem;
 }
 
 .expense-data {
   background-color: var(--light-gray);
   text-align: center;
-  padding: 5px;
 }
 
 .category-header {
@@ -141,7 +142,7 @@ input[type="number"] {
 }
 
 .date-header {
-  width: 6rem;
+  width: 8rem;
 }
 
 .category-container {

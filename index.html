@@ -37,10 +37,27 @@
         </div>
         <div class="item-setting">
           <h4>Add Expense</h4>
-          <select disabled name="category" id="category-selector"> </select>
+          <select
+            disabled
+            name="category"
+            id="category-selector"
+            onChange="getOptionText(this);"
+          >
+          </select>
           <div class="input-sign">
             <p>$</p>
-            <input disabled class="item-input" type="number" placeholder="15" />
+            <input
+              disabled
+              class="item-input-amount"
+              type="number"
+              placeholder="15"
+            />
+            <input
+              disabled
+              class="item-input-text"
+              type="text"
+              placeholder="Add a descreption"
+            />
           </div>
           <button disabled class="item-add">Add</button>
         </div>
@@ -50,7 +67,7 @@
       <div class="budget-info">
         <div class="Greeting">
           <h2>Hello User</h2>
-          <p>Current Date</p>
+          <p id="current-date"></p>
         </div>
         <div class="left-over">
           <h4>Left Over</h4>
@@ -66,11 +83,11 @@
         </div>
         <div class="savings">
           <h4>Savings</h4>
-          <p class="amount">0000</p>
+          <p id="allowance" class="amount">0000</p>
         </div>
         <div class="total-budget">
           <h4>Total Budget</h4>
-          <p id="monthly-budget" class="amount">0000</p>
+          <p id="total-budget" class="amount">0000</p>
         </div>
       </div>
 
@@ -82,24 +99,6 @@
             <th class="amount-header">Amount</th>
             <th class="desc-header">Description</th>
             <th class="date-header">Date/Time</th>
-          </tr>
-          <tr class="expense-item">
-            <td class="expense-data expense-category">Jill</td>
-            <td class="expense-data expense-amount">Smith</td>
-            <td class="expense-data expense-desc">50</td>
-            <td class="expense-data expense-date">01/23/2020</td>
-          </tr>
-          <tr class="expense-item">
-            <td class="expense-data expense-category">Jill</td>
-            <td class="expense-data expense-amount">Smith</td>
-            <td class="expense-data expense-desc">50</td>
-            <td class="expense-data expense-date">01/23/2020</td>
-          </tr>
-          <tr class="expense-item">
-            <td class="expense-data expense-category">Jill</td>
-            <td class="expense-data expense-amount">Smith</td>
-            <td class="expense-data expense-desc">50</td>
-            <td class="expense-data expense-date">01/23/2020</td>
           </tr>
         </table>
       </div>
