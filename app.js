@@ -55,6 +55,7 @@ function checkBudget() {
 
 function validateCategory(totalBudget, categoryValue) {
   const categoryTextInput = document.querySelector(".category-input-text");
+  const leftOverElm = document.querySelector(".left-over p");
   const categoryNames = document.querySelectorAll(".category-name");
   const categoryNamesArray = Array.from(categoryNames);
 
@@ -73,6 +74,7 @@ function validateCategory(totalBudget, categoryValue) {
     // we call the function here so that our savings update every time we add a new category (limit)
     const totalExpense = calcSavings(totalBudget);
     setTotalExpense(totalExpense);
+    leftOverElm.textContent = totalExpense;
   }
 }
 
@@ -198,7 +200,8 @@ function setCategorySpent() {
       catSpent = item;
       const remain = catLimit - catSpent;
       if (Number(itemInputAmount.value) > remain) {
-        itemInputText.value = "No no";
+        itemInputText.value = "";
+        itemInputText.placeholder = "Budget not sufficient";
       } else {
         elm.textContent = catSpent + Number(itemInputAmount.value);
         addItem(thisOptionText, itemInputAmount, itemInputText);
@@ -222,7 +225,7 @@ function addItem(option, amount, desc) {
   addTr.classList.add("expense-data");
   addTh1.classList.add(`category-header`);
   addTh2.classList.add(`amount-header`, `${option}`);
-  addTh3.classList.add("desk-header");
+  addTh3.classList.add("desc-header");
   addTh4.classList.add("date-header");
 
   // add any text that is needed in any elements
@@ -239,6 +242,7 @@ function addItem(option, amount, desc) {
   newItem.appendChild(addTh4);
   amount.value = "";
   desc.value = "";
+  desc.placeholder = "Add a descreption";
 }
 
 function getOptionText() {

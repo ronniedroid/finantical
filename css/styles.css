@@ -131,18 +131,22 @@ input[type="number"] {
 
 .category-header {
   width: 8rem;
+  padding: 0.4rem;
 }
 
 .amount-header {
   width: 8rem;
+  padding: 0.4rem;
 }
 
 .desc-header {
   width: 30rem;
+  padding: 0.4rem;
 }
 
 .date-header {
   width: 8rem;
+  padding: 0.4rem;
 }
 
 .category-container {
