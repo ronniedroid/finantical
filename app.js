@@ -203,8 +203,10 @@ function setCategorySpent() {
         itemInputText.value = "";
         itemInputText.placeholder = "Budget not sufficient";
       } else {
-        elm.textContent = catSpent + Number(itemInputAmount.value);
+        const NewAmount = catSpent + Number(itemInputAmount.value);
+        elm.textContent = NewAmount;
         addItem(thisOptionText, itemInputAmount, itemInputText);
+        deleteItem(elm, NewAmount);
         setCurrentExpense();
       }
     }
@@ -212,34 +214,42 @@ function setCategorySpent() {
 }
 
 function addItem(option, amount, desc) {
-  const expenseContainer = document.querySelector(".expense-table");
+  const expenseContainer = document.querySelector(".expense-container");
   const currentDate = getDate();
   // Create all your elements
-  const addTr = document.createElement("tr");
-  const addTh1 = document.createElement("th");
-  const addTh2 = document.createElement("th");
-  const addTh3 = document.createElement("th");
-  const addTh4 = document.createElement("th");
+  const addDiv = document.createElement("div");
+  const addP1 = document.createElement("p");
+  const addP2 = document.createElement("p");
+  const addP3 = document.createElement("p");
+  const addP4 = document.createElement("p");
+  const addBtn1 = document.createElement("button");
+  const addBtn2 = document.createElement("button");
 
   // add any class names to the elements we created
-  addTr.classList.add("expense-data");
-  addTh1.classList.add(`category-header`);
-  addTh2.classList.add(`amount-header`, `${option}`);
-  addTh3.classList.add("desc-header");
-  addTh4.classList.add("date-header");
+  addDiv.classList.add("expense-data");
+  addP1.classList.add(`category-header`);
+  addP2.classList.add(`amount-header`, `${option}`);
+  addP3.classList.add("desc-header");
+  addP4.classList.add("date-header");
+  addBtn1.classList.add("deleteBtn");
+  addBtn2.classList.add("modifyBtn");
 
   // add any text that is needed in any elements
-  addTh1.textContent = option;
-  addTh2.textContent = `$ ${amount.value}`;
-  addTh3.textContent = desc.value;
-  addTh4.textContent = currentDate;
+  addP1.textContent = `CAT: ${option}`;
+  addP2.textContent = `AMT: ${amount.value}`;
+  addP3.textContent = `DES: ${desc.value}`;
+  addP4.textContent = `DoT: ${currentDate}`;
+  addBtn1.textContent = "DEL";
+  addBtn2.textContent = "MOD";
 
   // created the nested structure of the HTML
-  const newItem = expenseContainer.appendChild(addTr);
-  newItem.appendChild(addTh1);
-  newItem.appendChild(addTh2);
-  newItem.appendChild(addTh3);
-  newItem.appendChild(addTh4);
+  const newItem = expenseContainer.appendChild(addDiv);
+  newItem.appendChild(addBtn1);
+  newItem.appendChild(addBtn2);
+  newItem.appendChild(addP1);
+  newItem.appendChild(addP2);
+  newItem.appendChild(addP3);
+  newItem.appendChild(addP4);
   amount.value = "";
   desc.value = "";
   desc.placeholder = "Add a descreption";
@@ -249,4 +259,19 @@ function getOptionText() {
   const itemCategoryText = document.getElementById("category-selector");
   const opt = itemCategoryText.options[itemCategoryText.selectedIndex];
   return opt.value;
+}
+
+function deleteItem(elm, oldAmount) {
+  const deleteBtn = document.querySelectorAll(".deleteBtn");
+  deleteBtn.forEach((expense) => {
+    expense.addEventListener("click", (e) => {
+      const item = e.target;
+      const div = item.parentElement;
+      const rAmountElm = div.childNodes[3].textContent;
+      const rAmountReg = rAmountElm.match(/(\d+)/);
+      const rAmount = Number(rAmountReg[0]);
+      elm.textContent = oldAmount - rAmount;
+      div.remove();
+    });
+  });
 }
